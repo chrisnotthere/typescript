@@ -1,5 +1,8 @@
 "use strict";
+// Objects in TypeScript can be annotated with specific types
+// These types can be inline, type aliases, interfaces, or built-in types
 Object.defineProperty(exports, "__esModule", { value: true });
+// Inline object type annotation
 function createCourse() {
     return {
         name: "TypeScript",
@@ -33,9 +36,15 @@ var myUser = {
 myUser.name = "Billy Bob";
 // myUser._id = '111'; // cannot change _id because it is readonly
 console.log(myUser._id);
-console.log(myUser === null || myUser === void 0 ? void 0 : myUser.phoneNumber); // optional chaining
+console.log(myUser === null || myUser === void 0 ? void 0 : myUser.phoneNumber); // Optional chaining
 var card = {
     cardNumber: '1234 5678 9012 3456',
     cardDate: '12/23',
     cvv: 123
 };
+var colors = {
+    red: "#f00",
+    green: "#0f0",
+    blue: "#00f",
+};
+console.log(colors.red); // "#f00"

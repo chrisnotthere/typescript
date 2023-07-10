@@ -1,3 +1,7 @@
+// Objects in TypeScript can be annotated with specific types
+// These types can be inline, type aliases, interfaces, or built-in types
+
+// Inline object type annotation
 function createCourse(): { name: string; price: number } {
   return {
     name: "TypeScript",
@@ -6,17 +10,17 @@ function createCourse(): { name: string; price: number } {
 }
 
 const course = createCourse(); // Type inference
-
 console.log(course);
 
 //////////////////////////////
 
+// Type alias for an object
 type User = {
-  readonly _id: string;
+  readonly _id: string; // readonly prevents reassignment
   name: string;
   email: string;
   isActive: boolean;
-  phoneNumber?: string;
+  phoneNumber?: string; // Optional property
 };
 
 function createUser(user: User): void {
@@ -40,7 +44,6 @@ createUser({
   phoneNumber: "123-456-7890",
 });
 
-
 let myUser: User = {
   _id: "742",
   name: "Billy",
@@ -51,10 +54,11 @@ let myUser: User = {
 myUser.name = "Billy Bob";
 // myUser._id = '111'; // cannot change _id because it is readonly
 console.log(myUser._id);
-console.log(myUser?.phoneNumber); // optional chaining
+console.log(myUser?.phoneNumber); // Optional chaining
 
 //////////////////////////////
 
+// Intersection types allow combining multiple types
 type cardNumber = {
   cardNumber: string;
 }
@@ -73,6 +77,17 @@ const card: cardDetails = {
   cvv: 123
 }
 
+// Index signature allows creating objects with any number of properties of a certain type
+type Dictionary = {
+  [key: string]: string;
+}
 
+let colors: Dictionary = {
+  red: "#f00",
+  green: "#0f0",
+  blue: "#00f",
+};
+
+console.log(colors.red); // "#f00"
 
 export {};
